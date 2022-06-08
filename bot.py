@@ -8,7 +8,7 @@ import os
 from JDatabase import JsonDatabase
 import start
 
-permitidos = ["Eljaguar12"]
+permitidos = ["Unk980929"]
 
 def filtrar_text(update, context):
     text = update.message.text
@@ -62,7 +62,7 @@ def filtrar_text(update, context):
                     bot.sendMessage(update.message.chat.id,'✖️No Tiene Permiso✖️')
             return
 
-        if '/search_proxy' in text:
+        if '/search' in text:
             try:
                 try:
                     try:id_msg = int(update.message.message_id) + 1
@@ -119,15 +119,15 @@ def filtrar_text(update, context):
                             rango_min = getUser['rango_minimo']
                             rango_max = getUser['rango_maximo']
                     except:
-                        rango_min = "2080"
-                        rango_max = "2085"
-                        ip = "181.225.253.188"
+                        rango_min = "1024"
+                        rango_max = "65355"
+                        ip = "152.206.139.117"
                     try:id_msg = int(update.message.message_id) + 1
                     except Exception as ex:bot.sendMessage(update.message.chat.id,ex)
                     msg_start = '🛰 Buscando Proxy!!\n\n⏳ Por favor espere .....'
                     print("Buscando proxy...")
                     bot.sendMessage(update.message.chat.id,msg_start)
-                    time.sleep(1.5)
+                    time.sleep(100)
                     try:bot.editMessageText(chat_id=update.message.chat.id,message_id=id_msg,text=f"{msg_start}\n\n➖➖➖➖➖➖➖\nBuscando proxy...\n\n➖➖➖➖➖➖➖")
                     except Exception as ex:bot.sendMessage(update.message.chat.id,ex)
                     for port in range(int(rango_min),int(rango_max)):
@@ -156,7 +156,7 @@ def filtrar_text(update, context):
                     except Exception as ex:print(str(ex))
                     return
             except: bot.sendMessage(update.message.chat.id,"ERROR")
-        if '/add_user' in text:
+        if '/add' in text:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 try:
@@ -170,7 +170,7 @@ def filtrar_text(update, context):
             else:
                 bot.sendMessage(update.message.chat.id,'✖️No Tiene Permiso✖️')
             return
-        if '/kick_user' in text:
+        if '/ban' in text:
             isadmin = jdb.is_admin(username)
             if isadmin:
                 try:
@@ -193,8 +193,8 @@ def filtrar_text(update, context):
 
 # TOKEN
 if __name__ == '__main__':
-    administrador = os.environ.get('Eljaguar12')
-    bot_token = os.environ.get('5459786686:AAHxsT52qdNhvaFGL5Hmpzww307eglvGDDA')
+    administrador = os.environ.get('Unk980929')
+    bot_token = os.environ.get('5506829387:AAGhF7iiU6ynWD6EboU9_n9KjO7KELw67aE')
     bot = telegram.Bot(token=bot_token)
     updater = Updater(token=bot_token, use_context=True)
 
